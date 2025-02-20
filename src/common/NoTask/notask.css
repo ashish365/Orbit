@@ -1,0 +1,17 @@
+.no-tasks {
+    text-align: center;
+    padding: 20px;
+    font-size: 18px;
+    color: #888;
+    min-height: 600px;
+  }
+  
+  .no-tasks h3 {
+    font-size: 22px;
+    font-weight: bold;
+  }
+  
+  .no-tasks p {
+    font-size: 16px;
+  }
+  

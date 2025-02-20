@@ -1,0 +1,15 @@
+#root {
+  width: 100%; /* Allow the root to take full width */
+  min-height: 100vh; /* Make sure it takes full height of the viewport */
+  margin: 0;
+  padding: 0;
+}
+
+.parent {
+  background-color: white;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+

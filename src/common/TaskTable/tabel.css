@@ -1,0 +1,188 @@
+/* Container */
+.table-container {
+  flex: 1; 
+  display: flex;
+  flex-direction: column;
+  overflow: auto; 
+}
+
+/* Table */
+.table-task {
+  width: 100%;
+  border-collapse: collapse;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  table-layout: fixed; 
+}
+
+/* Table Rows */
+.table-row th {
+  background-color: #4caf50; 
+  color: white; 
+  border: 1px solid #ddd;
+}
+
+.table-row:hover {
+  cursor: pointer;
+  transform: scale(1.02);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+/* Task ID */
+.single-task {
+  font-family: monospace;
+  color: #555;
+  padding: 18px;
+  text-align: center; 
+}
+
+/* Description Column (Task Title) */
+.task-title {
+  width: 40%; 
+  padding: 12px;
+}
+
+/* Priority Colors */
+.priority {
+  font-weight: bold;
+  padding: 12px;
+}
+
+.priority.none {
+  color: gray;
+}
+
+.priority.low {
+  color: green;
+}
+
+.priority.medium {
+  color: orange;
+}
+
+.priority.high {
+  color: red;
+}
+
+.priority.urgent {
+  color: darkred;
+  font-weight: bold;
+}
+
+/* Status Colors */
+.status {
+  font-weight: bold;
+  padding: 12px;
+}
+
+.status.not_started {
+  color: gray;
+}
+
+.status.in_progress {
+  color: blue;
+}
+
+.status.completed {
+  color: green;
+}
+
+
+/* Center Numeric and Checkbox Columns */
+.table-task td,
+.table-task th {
+  text-align: center; 
+}
+
+/* Custom Field Columns */
+.table-task td {
+  padding: 12px;
+}
+
+.table-task td input[type="checkbox"],
+.table-task td input[type="number"] {
+  text-align: center; 
+}
+
+/* Pagination Controls */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.navigation {
+  padding: 5px 10px;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+/* Sorting Header Styles */
+.sortable-header {
+  cursor: pointer;
+  font-weight: bold;
+  position: relative;
+  text-align: center; 
+}
+
+/* Always Show Sorting Icons */
+.sortable-header::after {
+  content: " ⬍";
+  font-size: 16px;
+  color: white;
+  margin-left: 5px;
+}
+
+/* Sorted Column Highlight */
+.sorted-asc::after {
+  content: " ↑";
+  color: #007bff;
+}
+
+.sorted-desc::after {
+  content: " ↓";
+  color: #dc3545;
+}
+
+/* Actions Column */
+.task-action {
+  text-align: center; /* Center the action buttons */
+  padding: 12px;
+}
+
+/* Custom style for checkboxes */
+input[type="checkbox"] {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #bbb;
+  border-radius: 4px;
+  position: relative;
+  cursor: pointer;
+  background-color: white; 
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* When the checkbox is checked */
+input[type="checkbox"]:checked {
+  background-color: #4CAF50; 
+  border-color: #4CAF50; 
+}
+
+/* When the checkbox is checked, add a checkmark */
+input[type="checkbox"]:checked::after {
+  content: "✓"; 
+  position: absolute;
+  top: 2px;
+  left: 4px;
+  color: white; 
+  font-size: 14px;
+}
+
+/* When the checkbox is not checked */
+input[type="checkbox"]:not(:checked) {
+  background-color: #f9f9f9; 
+  border-color: #bbb;
+}

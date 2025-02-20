@@ -1,0 +1,85 @@
+.task-manager {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+  }
+  
+  .task-manager h1 {
+    text-align: center;
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .task-manager button {
+    background: #4caf50;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    margin: 10px 5px;
+    cursor: pointer;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: background 0.3s ease;
+  }
+  
+  .task-manager button:hover {
+    background: #388e3c;
+  }
+  
+  .task-manager button:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+  }
+  
+  .filter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: space-between;
+    margin: 20px 0;
+    padding: 15px;
+    background: #f9f9f9;
+    border-radius: 8px;
+  }
+  
+  .filter input,
+  .filter select {
+    padding: 12px;
+    font-size: 1rem; 
+    border: 1px solid #ccc; 
+    border-radius: 8px; 
+    background-color: #f9f9f9; 
+    color: #333; 
+    transition: border 0.2s ease-in-out, background-color 0.2s ease-in-out; 
+    width: 100%;
+    box-sizing: border-box; 
+  }
+  
+  .filter input:focus,
+  .filter select:focus {
+    border-color: #007bff; 
+    background-color: #eaffea; 
+    outline: none;
+  }
+  
+  .filter button {
+    padding: 12px;
+    font-size: 1rem;
+    background: #4caf50;
+    color: white;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s ease-in-out;
+  }
+  
+  .filter button:hover {
+    background: #388e3c; 
+  }
+  
+  .filter button:disabled {
+    background: #e0e0e0; 
+    cursor: not-allowed;
+  }
+  
+  
