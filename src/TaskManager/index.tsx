@@ -22,7 +22,6 @@ const TaskManager: React.FC<any> = () => {
   const [tasks, setTasks] = useState<Task[]>([]); // original task list (initally set to mock-data on mounting)
 
   const [filteredTask, setFilteredTask] = useState<Task[]>([]); // filtered task list for rendering the list
-  console.log("🚀 ~ filteredTask:", filteredTask);
 
   const [history, setHistory] = useState<Task[][]>([]); //undo state
   const [future, setFuture] = useState<Task[][]>([]); // redo state
