@@ -22,6 +22,7 @@ const TaskManager: React.FC<any> = () => {
   const [tasks, setTasks] = useState<Task[]>([]); // original task list (initally set to mock-data on mounting)
 
   const [filteredTask, setFilteredTask] = useState<Task[]>([]); // filtered task list for rendering the list
+  console.log("🚀 ~ filteredTask:", filteredTask);
 
   const [history, setHistory] = useState<Task[][]>([]); //undo state
   const [future, setFuture] = useState<Task[][]>([]); // redo state
@@ -139,7 +140,7 @@ const TaskManager: React.FC<any> = () => {
     status: string
   ) => {
     const newTask = {
-      id: tasks.length + 1,
+      id: tasks.length > 0 ? Math.max(...tasks.map((t) => t.id)) + 1 : 1, // Generate sequential ID
       title,
       priority,
       status,
@@ -283,7 +284,8 @@ const TaskManager: React.FC<any> = () => {
         filter,
         customField.map((field) => field.name)
       );
-      setFilteredTask(sortedTasks);
+      // setFilteredTask(sortedTasks);
+      setFilteredTask([...sortedTasks].reverse()); // Ensure new tasks appear at the top
     } else {
       // Resetting the flag after a short delay, so sorting doesn't occur immediately
       setTimeout(() => setIsAddingCustomField(false), 0);

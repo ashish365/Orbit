@@ -5,9 +5,7 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import CancelIcon from "@mui/icons-material/Cancel";
 import EditIcon from "@mui/icons-material/Edit";
 import NoTasksFallback from "../NoTask/NoTaskFallback";
-
-const priorities = ["none", "low", "medium", "high", "urgent"];
-const statuses = ["not started", "in progress", "completed"];
+import { priorityArray, statusArray } from "../../utils/constants";
 
 type TaskTableProps = {
   tasks: Task[];
@@ -91,7 +89,7 @@ const Table: React.FC<TaskTableProps> = ({
       ...prev,
       [taskId]: {
         ...prev[taskId],
-        [fieldName]: value,
+        [fieldName]: typeof value === "boolean" ? value : String(value),
       },
     }));
   };
@@ -105,18 +103,7 @@ const Table: React.FC<TaskTableProps> = ({
       <table className="table-task">
         <thead>
           <tr className="table-row">
-            <th
-              className={`sortable-header ${
-                sortConfig.key === "id"
-                  ? sortConfig.ascending
-                    ? "sorted-asc"
-                    : "sorted-desc"
-                  : ""
-              }`}
-              onClick={() => onSort("id")}
-            >
-              ID
-            </th>
+            <th>ID</th>
             <th>Task Title</th>
             <th
               className={`sortable-header ${
@@ -167,9 +154,9 @@ const Table: React.FC<TaskTableProps> = ({
           </tr>
         </thead>
         <tbody>
-          {paginatedTask.map((task) => (
+          {paginatedTask.map((task, index) => (
             <tr key={task.id} className="table-row">
-              <td className="single-task">{task.id}</td>
+              <td className="single-task">{startInd + index + 1}</td>
               <td className="task-title">
                 {editId === task.id ? (
                   <input
@@ -187,7 +174,7 @@ const Table: React.FC<TaskTableProps> = ({
                     value={editPriority}
                     onChange={(e) => setEditPriority(e.target.value)}
                   >
-                    {priorities.map((p) => (
+                    {priorityArray.map((p) => (
                       <option key={p} value={p}>
                         {p}
                       </option>
@@ -203,9 +190,10 @@ const Table: React.FC<TaskTableProps> = ({
                     value={editStatus}
                     onChange={(e) => setEditStatus(e.target.value)}
                   >
-                    {statuses.map((s) => (
+                    {statusArray.map((s) => (
                       <option key={s} value={s}>
-                        {s}
+                        {s.replace("_", " ").charAt(0).toUpperCase() +
+                          s.replace("_", " ").slice(1)}
                       </option>
                     ))}
                   </select>

@@ -29,8 +29,8 @@
       );
     });
   
-    // If sorting is applied
-    if (sortConfig.key) {
+    // If sorting is applied and the key is not "id"
+    if (sortConfig.key && sortConfig.key !== "id") {
       filteredTasks.sort((taskA, taskB) => {
         let valueA: any = taskA[sortConfig.key];
         let valueB: any = taskB[sortConfig.key];
@@ -42,12 +42,16 @@
   
           // Handle boolean fields (checkbox)
           if (typeof valueA === "boolean" && typeof valueB === "boolean") {
-            return sortConfig.ascending ? Number(valueA) - Number(valueB) : Number(valueB) - Number(valueA);
+            return sortConfig.ascending
+              ? Number(valueA) - Number(valueB)
+              : Number(valueB) - Number(valueA);
           }
   
           // Handle number fields
           if (!isNaN(Number(valueA)) && !isNaN(Number(valueB))) {
-            return sortConfig.ascending ? Number(valueA) - Number(valueB) : Number(valueB) - Number(valueA);
+            return sortConfig.ascending
+              ? Number(valueA) - Number(valueB)
+              : Number(valueB) - Number(valueA);
           }
   
           // Handle string fields
